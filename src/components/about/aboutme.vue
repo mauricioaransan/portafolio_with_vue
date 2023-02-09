@@ -2,7 +2,7 @@
 <v-container>
   <h1>Acerca de mí</h1>
   <div class="under_line_title"></div>
-  <div>
+  <div id="about">
 Tale adolescens faucibus pertinax vero. Quis nisl iriure putent animal.
     Consequat iudicabit senserit agam noluisse montes facilisi dictum hendrerit sit.
     Molestiae constituto pertinax nunc vituperata fringilla explicari persius.
@@ -16,6 +16,7 @@ Tale adolescens faucibus pertinax vero. Quis nisl iriure putent animal.
   </v-row>
 
   <v-sheet
+      id="experiencie"
       class="ma-0 mt-8"
       elevation="8"
   >
@@ -38,7 +39,7 @@ Tale adolescens faucibus pertinax vero. Quis nisl iriure putent animal.
         </v-btn>
       </v-slide-item>
     </v-slide-group>
-
+<!--        ANIMAR LAS CARDS CON LO DEL VUETIFY-->
     <v-expand-transition>
       <v-sheet
           v-if="model === 0"
@@ -60,8 +61,20 @@ Tale adolescens faucibus pertinax vero. Quis nisl iriure putent animal.
       </v-sheet>
     </v-expand-transition>
   </v-sheet>
-  <v-sheet height="200">
+
+
+  <v-sheet
+      id="skills"
+  >
     <Skills/>
+  </v-sheet>
+
+
+
+
+
+  <v-sheet>
+    <ContactMe/>
   </v-sheet>
 </v-container>
 </template>
@@ -72,6 +85,7 @@ import TimeLineEducational from "@/components/about/timelineeducational.vue";
 import TimeLineAdditional from "@/components/about/timelineaditional.vue";
 import TimeLineExperience from "@/components/about/timelineexperience.vue";
 import Skills from "@/components/skill/skills.vue";
+import ContactMe from "@/components/contactme/contactme.vue";
 
 export default defineComponent({
   name: "aboutme",
@@ -79,7 +93,8 @@ export default defineComponent({
     TimeLineEducational,
     TimeLineAdditional,
     TimeLineExperience,
-    Skills
+    Skills,
+    ContactMe,
   },
   setup(){
   const model = ref(0)
@@ -103,5 +118,10 @@ export default defineComponent({
   color: red;
   padding-top: 15px;
   padding-bottom: 15px;
+}
+
+
+.experience_card{
+  transition: 2s;
 }
 </style>

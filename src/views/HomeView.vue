@@ -1,6 +1,4 @@
 <template>
-<!--  <NavigationBarLeft/>-->
-  <!-- <hello-world /> -->
   <v-row>
     <v-col cols="3">
       <NavigationBarLeft/>
@@ -15,7 +13,6 @@
 
 <script lang="ts">
   import Vue from 'vue'
-  import HelloWorld from '../components/HelloWorld.vue'
   import NavigationBarLeft from '../components/NavigationBarLeft/NavigationBarLeft.vue'
   import AboutMe from '../components/about/aboutme.vue'
 
@@ -25,10 +22,12 @@
     components: {
       NavigationBarLeft,
       AboutMe
-      // HelloWorld,
     },
   })
 </script>
 <style>
-
+  .v-item-group{
+    max-width: fit-content !important;
+    margin: 0 auto;
+  }
 </style>
