@@ -1,9 +1,9 @@
 <template>
   <v-row>
-    <v-col cols="3">
+    <v-col md="4" lg="3" xl="2">
       <NavigationBarLeft/>
     </v-col>
-    <v-col cols="9">
+    <v-col md="8" lg="9" xl="10">
       <about-me/>
     </v-col>
 

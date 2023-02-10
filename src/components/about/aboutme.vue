@@ -1,14 +1,34 @@
 <template>
 <v-sheet>
-  <v-sheet height="100vh" color="#008000" id="home">
-    <h2>Mauricio Arancibia Sanchez</h2>
-    <div class="container_animation">
-        <span class="text first_text"> Desarrollador</span>
-        <span class="text typed-text"> {{text_typed}}</span>
-        <span class="cursor">&nbsp;</span>
-    </div>
+  <v-card
+      height="100vh"
+      color="#008000"
+      id="home"
+      elevation="0"
+      class="d-flex align-center"
+      img="https://images.unsplash.com/photo-1605379399642-870262d3d051?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1506&q=80"
+  >
+    <v-col class="d-flex justify-center " cols="12">
+      <div class="container_animation">
+        <span class="text first_text"> Desarrollador </span>
+        <typewriter
+            :replace="replace"
+            :type-interval="200"
+            :replace-interval="1000"
+        >
+          <span class="text typed-text"> {{text_typed}}</span>
+        </typewriter>
+      </div>
+<!--      <h2>Mauricio Arancibia Sanchez</h2>-->
+<!--      <div class="container_animation">-->
+<!--        <span class="text first_text"> Desarrollador</span>-->
+<!--        <span class="text typed-text"> {{text_typed}}</span>-->
+<!--        <span class="cursor">&nbsp;</span>-->
+<!--      </div>-->
+    </v-col>
 
-  </v-sheet>
+
+  </v-card>
   <v-sheet id="about">
     <h1>Acerca de mí</h1>
     <div class="under_line_title"></div>
@@ -122,6 +142,7 @@ import TimeLineExperience from "@/components/about/timelineexperience.vue";
 import Skills from "@/components/skill/skills.vue";
 import ContactMe from "@/components/contactme/contactme.vue";
 import Portafolio from "@/components/Portafolio/Portafolio.vue";
+import Typewriter from "@/components/tipper.vue"
 
 export default defineComponent({
   name: "aboutme",
@@ -132,7 +153,9 @@ export default defineComponent({
     TimeLineExperience,
     Skills,
     ContactMe,
+    Typewriter
   },
+
   setup(){
   const model = ref(0);
   const items = ref([
@@ -142,6 +165,12 @@ export default defineComponent({
   ]);
   const time      = ref(2)
   const text_typed = ref('Front-End');
+
+  const  replace=  ref([
+        { from: "Front-End", to: "Back-End" },
+        { from: "Back-End", to: "Front-End" },
+        { from: "Front-End", to: "Back-End" },
+      ])
 
   onMounted(()=>{
     setInterval(()=>{
@@ -156,7 +185,7 @@ export default defineComponent({
     },4000)
   })
     return{
-    model,items,text_typed,time
+    model,items,text_typed,time,replace
     }
   },
 
@@ -190,7 +219,8 @@ export default defineComponent({
   transition: 2s;
 }
 .container_animation{
-  overflow: hidden;
+  display: flex;
+  width: 100%;
 }
 .container_animation .text{
   position: relative;
@@ -200,18 +230,25 @@ export default defineComponent({
 }
 .container_animation .text.first_text{
   color: white;
+  padding-right: 24px;
 }
-.typed-text:before{
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  background-color: green;
-  border-left: 2px solid blue;
-  animation: animate 4s steps(12) infinite;
-}
+
+
+
+/**
+Es para solo uso de CSS con un fondo de pantalla del mismo color que el componente 'absolute'
+ */
+/*.typed-text:before{*/
+/*  content: '';*/
+/*  position: absolute;*/
+/*  top: 0;*/
+/*  left: 0;*/
+/*  height: 100%;*/
+/*  width: 100%;*/
+/*  background-color: green;*/
+/*  border-left: 2px solid blue;*/
+/*  animation: animate 4s steps(12) infinite;*/
+/*}*/
 
 
 @keyframes animate {
