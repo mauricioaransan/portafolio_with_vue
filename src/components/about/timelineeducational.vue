@@ -1,61 +1,21 @@
 <template>
   <v-timeline :dense="$vuetify.breakpoint.smAndDown">
-
-    <!--    FIRST CARD OF THE TIME LINE-->
     <v-timeline-item
-
-        color="purple lighten-2"
+        v-for="(item,id) in items"
+        :key="id"
+        :color="item.color"
         fill-dot
-        :icon="items[1].icon"
-        left
+        :icon="item.icon"
+        :left="id===1"
+        :right="id===0 || id === 2"
     >
-      <v-card class="mr-4 card_left">
+      <v-card class="mx-4">
         <v-col class="pa-4">
-          <div class="card_timelapse">Sep, 2015 - Feb, 2021</div>
-          <div class="card_title">Ingenieria de Sistemas</div>
-          <div class="card_place">UNTELS, Peru</div>
+          <div class="card_timelapse">{{ item.timelapse }}</div>
+          <div class="card_title">{{ item.title }}</div>
+          <div class="card_place">{{ item.place }}</div>
           <div class="card_content">
-            Egresado de la carrera Profesional de Ingenieria de Sistemas. (tramitando el Bachiller).
-          </div>
-        </v-col>
-      </v-card>
-    </v-timeline-item>
-
-    <!--    SECOND CARD OF THE TIME LINE -->
-    <v-timeline-item
-        color="purple lighten-2"
-        fill-dot
-        right
-        :icon="items[2].icon"
-    >
-      <v-card class="ml-4 card_right">
-        <v-col class="pa-4">
-          <div class="card_timelapse">Mar, 2008 - Dic, 2012</div>
-          <div class="card_title">SECUNDARIA - CONTABILIDAD</div>
-          <div class="card_place">Heroes del Alto Cenepa, Peru</div>
-          <div class="card_content">
-            Secundaria completa con cursos de especializacion en contabilidad, ocupando el segundo lugar de la promocion.
-          </div>
-        </v-col>
-      </v-card>
-    </v-timeline-item>
-
-
-
-    <!--     THIRD CARD OF THE TIME LINE -->
-    <v-timeline-item
-        color="purple lighten-2"
-        fill-dot
-        left
-        :icon="items[2].icon"
-    >
-      <v-card class="ml-4 card_left">
-        <v-col class="pa-4">
-          <div class="card_timelapse">Mar, 2002 - Dic, 2007</div>
-          <div  class="card_title">PRIMARIA </div>
-          <div  class="card_place">Heroes del Alto Cenepa, Peru</div>
-          <div  class="card_content">
-            Primaria completa.
+            {{ item.content }}
           </div>
         </v-col>
       </v-card>
@@ -71,20 +31,28 @@ export default defineComponent({
   setup(){
     const items = ref([
       {
-        color: 'red lighten-2',
-        icon: 'mdi-star',
+        color:          'purple lighten-2',
+        icon:           'mdi-star-box-outline',
+        timelapse :     'Sep, 2015 - Feb, 2021',
+        title:          'Ingenieria de Sistemas',
+        place:          'UNTELS, Peru',
+        content:        'Egresado de la carrera Profesional de Ingenieria de Sistemas. (tramitando el Bachiller).'
       },
       {
-        color: 'purple darken-1',
-        icon: 'mdi-book-variant',
+        color:          'red lighten-2',
+        icon:           'mdi-file-document-outline',
+        timelapse :     'Mar, 2008 - Dic, 2012',
+        title:          'SECUNDARIA - CONTABILIDAD',
+        place:          'Heroes del Alto Cenepa, Peru',
+        content:        'Secundaria completa con cursos de especializacion en contabilidad, ocupando el segundo lugar de la promocion.'
       },
       {
-        color: 'green lighten-1',
-        icon: 'mdi-airballoon',
-      },
-      {
-        color: 'indigo',
-        icon: 'mdi-buffer',
+        color:          'red lighten-2',
+        icon:           'mdi-file-document-outline',
+        timelapse :     'Mar, 2002 - Dic, 2007',
+        title:          'PRIMARIA',
+        place:          'Heroes del Alto Cenepa, Peru',
+        content:        'Primaria completa.'
       },
     ])
 
@@ -97,9 +65,6 @@ export default defineComponent({
 
 <style scoped>
 
-.card_left{
-  text-align: end;
-}
 .card_timelapse{
   color: #149ddd;
   font-weight: 600;

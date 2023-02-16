@@ -93,36 +93,42 @@
             v-for="(item,i) in items"
             :key="i"
             v-slot="{ active, toggle }"
+            class=" my-5"
         >
           <v-btn
-              :color="active ? 'primary' : 'grey lighten-1'"
+              :class="active ? ' btn_slide_group_activated' : 'btn_slide_group'"
               @click="toggle"
           >
             {{item.title}}
           </v-btn>
         </v-slide-item>
       </v-slide-group>
-      <!--        ANIMAR LAS CARDS CON LO DEL VUETIFY-->
-      <v-expand-transition>
-        <v-sheet
-            v-if="model === 0"
-            tile
-        >
-          <TimeLineExperience/>
-        </v-sheet>
-        <v-sheet
-            v-if="model === 1"
-            tile
-        >
-          <TimeLineEducational/>
-        </v-sheet>
-        <v-sheet
-            v-if="model === 2"
-            tile
-        >
-          <TimeLineAdditional/>
-        </v-sheet>
-      </v-expand-transition>
+        <v-scale-transition >
+          <v-sheet
+              v-if="model === 0"
+              tile
+          >
+            <TimeLineExperience/>
+          </v-sheet>
+        </v-scale-transition>
+
+        <v-scale-transition>
+          <v-sheet
+              v-if="model === 1"
+              tile
+          >
+            <TimeLineEducational/>
+          </v-sheet>
+        </v-scale-transition>
+
+        <v-scale-transition>
+          <v-sheet
+              v-if="model === 2"
+              tile
+          >
+            <TimeLineAdditional/>
+          </v-sheet>
+        </v-scale-transition>
     </v-sheet>
   </v-sheet>
 
@@ -247,6 +253,38 @@ export default defineComponent({
   font-weight: bold;
   margin-right: 10px;
 }
+/**
+MEJORAR ESTO para los botones y poner animaciones
+ */
+.btn_slide_group{
+  font-size: 20px;
+  margin-right: 15px;
+  margin-left: 15px;
+  font-weight: 600 !important;
+  background-color: #ebeef1 !important;
+  border: none !important;
+  border-radius: 15px;
+
+}
+.btn_slide_group_activated{
+  font-size: 20px;
+  margin-right: 15px;
+  margin-left: 15px;
+  font-weight: 600 !important;
+  background-color: #ebeef1 !important;
+  border-radius: 15px;
+  border: none !important;
+  color: #706fd3;
+  transition: 0.3s;
+  border: 2px solid rgba(112,111,211,1);
+  box-shadow: 0 0 0 1px rgb(58,57,110);
+  animation: anim-shadow .4s ease-out;
+}
+@keyframes anim-shadow {
+  100%{
+    box-shadow: 0 0 15px 6px rgb(58,57,110);
+  }
+}
 
 .under_line_title{
   width: 100px;
@@ -291,7 +329,7 @@ Es para solo uso de CSS con un fondo de pantalla del mismo color que el componen
 /*  animation: animate 4s steps(12) infinite;*/
 /*}*/
 
-
+/*
 @keyframes animate {
   40%, 60% {
     left:100%
@@ -299,5 +337,5 @@ Es para solo uso de CSS con un fondo de pantalla del mismo color que el componen
   100%{
     left: 0%;
   }
-}
+}*/
 </style>
