@@ -53,7 +53,7 @@ export default defineComponent({
     {icon: 'mdi-account',               title:'acerca de mi', goto:'about'},
     {icon: 'mdi-file-document-outline', title:'portafolio',   goto:'portfolio'},
     {icon: 'mdi-tray-arrow-up',         title:'skills',       goto:'skills'},
-    {icon: 'mdi-server',                title:'contacteme',   goto:'experiencie'},
+    {icon: 'mdi-server',                title:'contacteme',   goto:'contactme'},
   ])
 
 

@@ -4,7 +4,7 @@
     {{ title }}
   </div>
   <v-progress-linear
-      color="lime"
+      :color="color"
       :value="value"
       height="25"
       striped
@@ -28,12 +28,28 @@ export default defineComponent ({
     value:{
       type:String
     },
+    color:{
+      type:String
+    },
   },
 })
 </script>
 
-<style scoped>
+<style >
 .progress_title{
   margin-top: 10px;
+  margin-bottom: 3px;
+  font-size: 18px;
+  font-weight: bold;
+
+}
+.v-progress-linear--striped .v-progress-linear__determinate {
+  animation: progress-linear-stripes 1s infinite linear;
+}
+
+@keyframes progress-linear-stripes {
+  0% {
+    background-position-x: 40px;
+  }
 }
 </style>

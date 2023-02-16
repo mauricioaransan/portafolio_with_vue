@@ -1,5 +1,5 @@
 <template>
-  <v-sheet id="portfolio">
+  <v-sheet id="portfolio" >
     <h1>portaFOLIO</h1>
     <v-row>
       <v-col cols="4" v-for="item in 6">
