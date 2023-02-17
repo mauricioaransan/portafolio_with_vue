@@ -6,8 +6,8 @@
         :color="item.color"
         fill-dot
         :icon="item.icon"
-        :left="id===1"
-        :right="id===0 || id === 2"
+        :left="id===0 || id === 2"
+        :right="id===1"
     >
       <v-card class="mx-4">
         <v-col class="pa-4">

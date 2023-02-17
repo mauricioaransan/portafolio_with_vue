@@ -81,7 +81,6 @@
     <v-sheet
         id="experiencie"
         class="ma-0 mt-8"
-        elevation="8"
     >
       <v-slide-group
           v-model="model"

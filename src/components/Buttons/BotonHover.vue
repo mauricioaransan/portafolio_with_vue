@@ -1,14 +1,13 @@
 <template>
-  <a :style="colors">
-    {{ title }}
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-
-  </a>
+  <router-link to="/projects" :style="colors">
+      {{ title }}
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+  </router-link>
 </template>
 
 <script lang="ts">
