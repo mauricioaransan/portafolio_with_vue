@@ -3,7 +3,7 @@
     <v-row v-for="(item,id) in items" :key="id" class="mt-12 mx-7">
       <v-col cols="6" class="d-flex align-center">
         <v-sheet :id="item.id" elevation="10" color="red" >
-          <div> {{ item.title }}     </div>
+          <div> {{ item.title }} </div>
           <div> {{ item.content }} </div>
           <h5>Tecnologias Usadas: </h5>
           <v-row class="ma-0" v-for="(tech,id) in item.tech" :key="id">
