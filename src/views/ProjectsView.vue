@@ -1,5 +1,14 @@
 <template>
   <v-sheet>
+<!--    Cosas por mejorar:-->
+
+<!--    Ponerle cargadores (cuando se demore en cargar la pagina)-->
+<!--    Responsive-->
+<!--    Timelines (aumentar mas informacion)-->
+<!--    Acerca de mi (mejorar los cuadros y centrar un poco mas, aumentar mas info)-->
+<!--    Home (quitarle el fondo verde)-->
+<!--    Hacer el portafolio-->
+<!--    Aumentar botones en las informaciones (para que se vean los certificados)-->
     <v-row v-for="(item,id) in items" :key="id" class="mt-12 mx-7">
       <v-col cols="6" class="d-flex align-center">
         <v-sheet :id="item.id" elevation="10" color="red" >
