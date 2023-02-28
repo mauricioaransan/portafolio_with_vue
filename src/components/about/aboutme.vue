@@ -1,8 +1,7 @@
 <template>
-<v-sheet >
+<v-sheet color="#F8F9F9" >
   <v-card
       height="100vh"
-      color="#008000"
       id="home"
       elevation="0"
       class="d-flex align-center"
@@ -19,33 +18,26 @@
           <span class="text typed-text"> {{text_typed}}</span>
         </typewriter>
       </div>
-<!--      <h2>Mauricio Arancibia Sanchez</h2>-->
-<!--      <div class="container_animation">-->
-<!--        <span class="text first_text"> Desarrollador</span>-->
-<!--        <span class="text typed-text"> {{text_typed}}</span>-->
-<!--        <span class="cursor">&nbsp;</span>-->
-<!--      </div>-->
     </v-col>
 
 
   </v-card>
-  <v-sheet id="about" class="mt-10 pl-5 pr-5" color="black">
-
+  <v-sheet id="about" class="mt-10 pl-5 pr-5" color="transparent">
 
     <h1 class="port_title">Acerca de mí</h1>
     <div class="under_line_title"></div>
     <v-row >
       <v-col md="5" lg="6" xl="6" class="about_text_principal">
-        <v-sheet width="85%" style="margin: 0 auto" elevation="5" class="pa-5">
-          <span class="about_text_develop">Desarrollador FrontEnd </span>
+        <v-sheet width="85%" style="margin: 0 auto" elevation="5" class="pa-5 personal_info_card">
+          <span class="about_text_develop">Desarrollador WEB </span>
           <span> con conocimientos en Vue, JS, HTML y CSS,
         además de otros lenguajes como TypeScript y Java.
-        Egresado de la carrera de Ingeniería de Sistemas con muchas facilidades de aprendizaje rápido
-        y efectivo, con ganas de seguir adquiriendo conocimientos.
-        Me considero una persona con una gran prioridad por la responsabilidad y
-        el compromiso por el trabajo, además de tener aptitudes para
-        poder desarrollar bajo presión.
         </span>
+          <p>
+            Me considero una persona con una gran prioridad por la responsabilidad y
+            el compromiso por el trabajo, además de tener aptitudes para
+            poder desarrollar bajo presión.
+          </p>
         </v-sheet>
       </v-col>
 
@@ -71,7 +63,7 @@
             </v-col>
           </v-row>
           <v-row class="ma-0 mt-5">
-            <botonHover colorHover="red" title="Descargar cv"/>
+            <botonHover colorHover="#2196f3" title="Descargar cv"/>
           </v-row>
       </v-col>
     </v-row>
@@ -79,6 +71,7 @@
 
 
     <v-sheet
+        color="transparent"
         id="experiencie"
         class="ma-0 mt-8"
     >
@@ -106,6 +99,7 @@
           <v-sheet
               v-if="model === 0"
               tile
+              color="transparent"
           >
             <TimeLineExperience/>
           </v-sheet>
@@ -115,6 +109,7 @@
           <v-sheet
               v-if="model === 1"
               tile
+              color="transparent"
           >
             <TimeLineEducational/>
           </v-sheet>
@@ -124,6 +119,7 @@
           <v-sheet
               v-if="model === 2"
               tile
+              color="transparent"
           >
             <TimeLineAdditional/>
           </v-sheet>
@@ -208,18 +204,6 @@ export default defineComponent({
     }
   },
 
-  // mounted(){
-  //   setInterval(()=>{
-  //     if(this.time === 2 ){
-  //       this.text_typed = 'Back-End'
-  //     }
-  //     if(this.time === 1 ){
-  //       this.text_typed = 'Front-End'
-  //       return this.time  = 2
-  //     }
-  //       this.time -= 1
-  //   },4000)
-  // }
 
 })
 </script>
@@ -228,7 +212,13 @@ export default defineComponent({
 
 .port_title{
   text-transform: uppercase;
-  color:  white;
+  color:  #003785;
+  transition: 0.2s;
+}
+.port_title:hover{
+  text-shadow: 0 0 3px #040b14;
+  transition: 0.2s;
+  cursor:pointer;
 }
 .port_subtitle{
   text-transform: uppercase;
@@ -252,17 +242,15 @@ export default defineComponent({
   font-weight: bold;
   margin-right: 10px;
 }
-/**
-MEJORAR ESTO para los botones y poner animaciones
- */
 .btn_slide_group{
   font-size: 20px;
   margin-right: 15px;
   margin-left: 15px;
   font-weight: 600 !important;
-  background-color: #ebeef1 !important;
+  background-color: #616069 !important;
   border: none !important;
   border-radius: 15px;
+  color: #b9ffff !important;
 
 }
 .btn_slide_group_activated{
@@ -270,13 +258,13 @@ MEJORAR ESTO para los botones y poner animaciones
   margin-right: 15px;
   margin-left: 15px;
   font-weight: 600 !important;
-  background-color: #ebeef1 !important;
+  background-color: #040b14 !important;
   border-radius: 15px;
   border: none !important;
   color: #706fd3;
   transition: 0.3s;
-  border: 2px solid rgba(112,111,211,1);
-  box-shadow: 0 0 0 1px rgb(58,57,110);
+  border: 2px solid #282459FF;
+  box-shadow: 0 0 0 1px #282459FF;
   animation: anim-shadow .4s ease-out;
 }
 @keyframes anim-shadow {

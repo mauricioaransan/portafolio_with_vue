@@ -7,7 +7,7 @@
         fill-dot
         :icon="item.icon"
     >
-      <v-card class="mr-4">
+      <v-card class="mr-4 time_line_card" >
         <v-col class="pa-4">
           <div class="card_timelapse">{{ item.timelapse }}</div>
           <div class="card_title">{{ item.title }}</div>
@@ -33,7 +33,7 @@ export default defineComponent({
   setup(){
     const items = ref([
       {
-        color:          'purple lighten-2',
+        color:          '#003785',
         icon:           'mdi-star-box-outline',
         timelapse :     'abr, 2022 - oct, 2022',
         title:          'Vue2 - Vue3',
@@ -41,7 +41,7 @@ export default defineComponent({
         content:        'Curso en el que vi los fundamentos de Vue 2 & Vue 3, usando Composition API y Option API & VueX'
       },
       {
-        color:          'red lighten-2',
+        color:          '#81c9fa',
         icon:           'mdi-file-document-outline',
         timelapse :     'feb, 2022 - Feb, 2022',
         title:          'macros y VBA',
@@ -49,7 +49,7 @@ export default defineComponent({
         content:        'Curso para potenciar mis conocimientos en Excel VBA.'
       },
       {
-        color:          'purple lighten-2',
+        color:          '#003785',
         icon:           'mdi-star-box-outline',
         timelapse :     'nov, 2021 - ene, 2022',
         title:          'universidad JAVA',
@@ -57,7 +57,7 @@ export default defineComponent({
         content:        'Curso que llevé virtualmente, donde pude ver programación web en lenguaje JAVA, además de ver Springboot y Angular.'
       },
       {
-        color:          'pruple lighten-2',
+        color:          '#81c9fa',
         icon:           'mdi-star-box-outline',
         timelapse :     'set, 2021 - oct, 2021',
         title:          'HTML, CSS & JavaScript',
@@ -65,7 +65,7 @@ export default defineComponent({
         content:        'Curso dedicado a saber los conceptos necesarios acerca de HTML, CSS & JS.'
       },
       {
-        color:          'red lighten-2',
+        color:          '#81c9fa',
         icon:           'mdi-file-document-outline',
         timelapse :     'ago, 2021 - set, 2021',
         title:          'microsoft office',
@@ -73,7 +73,7 @@ export default defineComponent({
         content:        'Curso donde se vio hasta un nivel intermedio Microsoft Office Word, Excel y Power Point.'
       },
       {
-        color:          'red lighten-2',
+        color:          '#81c9fa',
         icon:           'mdi-file-document-outline',
         timelapse :     'set, 2020 - feb, 2021',
         title:          'flutter & dart',
@@ -90,6 +90,9 @@ export default defineComponent({
 </script>
 
 <style scoped>
+.time_line_card{
+  border-radius: 20px!important;
+}
 
 .card_timelapse{
   color: #149ddd;

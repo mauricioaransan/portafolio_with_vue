@@ -1,5 +1,5 @@
 <template>
-  <v-sheet id="skills">
+  <v-sheet id="skills" class="mt-10 pl-5 pr-5">
     <h1 class="port_title">Habilidades</h1>
     <v-row class="ma-4">
       <v-col cols="6">
@@ -62,6 +62,12 @@ export default defineComponent({
 <style scoped>
 .port_title{
   text-transform: uppercase;
-  margin-top: 25px;
+  color:  #003785;
+  transition: 0.2s;
+}
+.port_title:hover{
+  text-shadow: 0 0 3px #040b14;
+  transition: 0.2s;
+  cursor:pointer;
 }
 </style>

@@ -89,7 +89,7 @@ export default defineComponent({
 }
 .nav_item:hover, .nav_item:hover .nav_item_icon{
   cursor: pointer;
-  color: red !important;
+  color: #2196f3 !important;
   transition: .4s;
 }
 .nav_item_title{

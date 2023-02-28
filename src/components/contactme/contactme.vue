@@ -1,6 +1,6 @@
 <template>
-  <v-sheet color="grey">
-    <h1 class="mt-6 mb-3 ">Contacteme</h1>
+  <v-sheet color="transparent" class="mt-10 pl-5 pr-5">
+    <h1 class="mt-6 mb-3 port_title ">Contacteme</h1>
     <v-row>
       <v-col cols="6" >
         <v-row class="ma-0 d-flex justify-center pt-3" >
@@ -59,8 +59,19 @@ export default defineComponent( {
 </script>
 
 <style scoped>
-.contact_title{
 
+.port_title{
+  text-transform: uppercase;
+  color:  #003785;
+  transition: 0.2s;
+}
+.port_title:hover{
+  text-shadow: 0 0 3px #040b14;
+  transition: 0.2s;
+  cursor:pointer;
+}
+
+.contact_title{
   line-height: 30px;
   margin-bottom: 45px;
   text-transform: uppercase;

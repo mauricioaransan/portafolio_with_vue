@@ -1,6 +1,6 @@
 <template>
-  <v-sheet id="portfolio" >
-    <h1 class="mt-5">portaFOLIO</h1>
+  <v-sheet id="portfolio" class="mt-10 pl-5 pr-5" >
+    <h1 class="mt-5 port_title">PORTAFOLIO</h1>
     <v-row class="px-10 mt-10" justify="center">
       <v-col cols="4" v-for="item in items" >
         <v-hover v-slot="{ hover }">
@@ -83,6 +83,18 @@ export default defineComponent ( {
 </script>
 
 <style scoped>
+
+.port_title{
+  text-transform: uppercase;
+  color:  #003785;
+  transition: 0.2s;
+}
+.port_title:hover{
+  text-shadow: 0 0 3px #040b14;
+  transition: 0.2s;
+  cursor:pointer;
+}
+
 .port_info_title{
   font-weight: 800;
   font-size: 24px;

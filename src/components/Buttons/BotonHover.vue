@@ -45,19 +45,19 @@ export default defineComponent({
 a{
   position: relative;
   display: inline-block;
-  color: rgba(255,255,255,.4) !important;
+  color: rgba(255,255,255) !important;
   font-size: 20px;
   letter-spacing: 5px;
   text-decoration: none;
   text-transform: uppercase;
-  background-color: #262c37;
+  background-color: #040b14;
   padding: 10px 30px;
   transition: .5s;
   transition-delay: .8s;
 }
 a:hover{
   color: var(--color);
-  text-shadow: 0 0 5px var(--color);
+  text-shadow: 0 0 20px var(--color);
   letter-spacing: .25em;
   transition-delay: 1ms;
 }

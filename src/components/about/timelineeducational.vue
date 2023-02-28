@@ -9,7 +9,7 @@
         :left="id===0 || id === 2"
         :right="id===1"
     >
-      <v-card class="mx-4">
+      <v-card class="mx-4 time_line_card">
         <v-col class="pa-4">
           <div class="card_timelapse">{{ item.timelapse }}</div>
           <div class="card_title">{{ item.title }}</div>
@@ -31,7 +31,7 @@ export default defineComponent({
   setup(){
     const items = ref([
       {
-        color:          'purple lighten-2',
+        color:          '#003785',
         icon:           'mdi-star-box-outline',
         timelapse :     'Sep, 2015 - Feb, 2021',
         title:          'Ingenieria de Sistemas',
@@ -39,7 +39,7 @@ export default defineComponent({
         content:        'Egresado de la carrera Profesional de Ingenieria de Sistemas. (tramitando el Bachiller).'
       },
       {
-        color:          'red lighten-2',
+        color:          '#81c9fa',
         icon:           'mdi-file-document-outline',
         timelapse :     'Mar, 2008 - Dic, 2012',
         title:          'SECUNDARIA - CONTABILIDAD',
@@ -47,7 +47,7 @@ export default defineComponent({
         content:        'Secundaria completa con cursos de especializacion en contabilidad, ocupando el segundo lugar de la promocion.'
       },
       {
-        color:          'red lighten-2',
+        color:          '#81c9fa',
         icon:           'mdi-file-document-outline',
         timelapse :     'Mar, 2002 - Dic, 2007',
         title:          'PRIMARIA',
@@ -64,6 +64,9 @@ export default defineComponent({
 </script>
 
 <style scoped>
+.time_line_card{
+  border-radius: 20px!important;
+}
 
 .card_timelapse{
   color: #149ddd;

@@ -8,7 +8,7 @@
         fill-dot
         :icon="item.icon"
     >
-      <v-card class="mx-4">
+      <v-card class="mx-4 time_line_card">
         <v-col class="pa-4">
           <div class="card_timelapse">{{ item.timelapse }}</div>
           <div class="card_title">{{ item.title }}</div>
@@ -32,7 +32,7 @@ export default defineComponent({
   setup(){
     const items = ref([
       {
-        color:          'purple lighten-2',
+        color:          '#003785',
         icon:           'mdi-star-box-outline',
         timelapse :     'mar, 2022 - ene, 2023',
         title:          'desarrollador frontend junior',
@@ -40,7 +40,7 @@ export default defineComponent({
         content:        ' Encargado del desarrollo de paginas web (meter mas floro)'
       },
       {
-        color:          'red lighten-2',
+        color:          '#81c9fa',
         icon:           'mdi-briefcase-outline',
         timelapse :     'mar, 2022 - ene, 2023',
         title:          'ayudante de programacion',
@@ -48,7 +48,7 @@ export default defineComponent({
         content:        'Ayudé en el programado de los equipos BMS para el proyecto LAP el cual se encarga de la supervisión y monitoreo de varios sistemas dentro de una edificación'
       },
       {
-        color:          'red lighten-2',
+        color:          '#81c9fa',
         icon:           'mdi-briefcase-outline',
         timelapse :     'may, 2021 - mar, 2022',
         title:          'tecnico instalador',
@@ -57,7 +57,7 @@ export default defineComponent({
             '            También encargado del mantenmiento e instalación de los dispositivos de CCTV.'
       },
       {
-        color:          'red lighten-2',
+        color:          '#81c9fa',
         icon:           'mdi-briefcase-outline',
         timelapse :     'feb, 2018 - feb, 2020',
         title:          'asesor de ventas',
@@ -77,6 +77,9 @@ export default defineComponent({
 </script>
 
 <style scoped>
+.time_line_card{
+  border-radius: 20px!important;
+}
 
 .card_timelapse{
   color: #149ddd;
