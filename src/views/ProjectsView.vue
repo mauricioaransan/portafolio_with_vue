@@ -43,12 +43,21 @@
 </template>
 
 <script lang="ts">
-import {defineComponent, ref} from "vue";
+import {defineComponent, onMounted, ref} from "vue";
+import goTo from 'vuetify/lib/services/goto'
+import {useRoute} from "vue-router/composables";
 
 export default defineComponent({
   name: "ProjectsView",
 
   setup(){
+  const route = useRoute()
+    const id = route.params.id
+
+    onMounted(() =>{
+      goTo( `#${id}`)
+    })
+
     const items = ref([
       {
         model:      0,
@@ -132,7 +141,7 @@ export default defineComponent({
       },
       {
         model:      0,
-        id:         'app',
+        id:         'appAltillos',
         title:      'Applicativo Altillos',
         content:    'Proyecto Académico que desarrollé para el curso de Tesina en la Universidad, donde desarrollé tanto el aplicativo móvil como la documentación necesaria para sustentar el proyecto.\n' +
                     'Consta de un aplicativo móvil que serviría como solución a la problemática que en ese momento SODIMAC tenía encima, el cual era la ubicación de sus productos en los altillos, ya que estos no contaban con ningún orden.\n' +
@@ -151,7 +160,7 @@ export default defineComponent({
 
 
     return{
-      items,
+      items
     }
   }
 

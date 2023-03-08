@@ -1,5 +1,5 @@
 <template>
-  <router-link to="/projects" :style="colors">
+  <router-link :to="'/projects/'+redirect"  :style="colors">
       {{ title }}
       <span></span>
       <span></span>
@@ -23,6 +23,9 @@ export default defineComponent({
     title:{
       type:String,
       required:true
+    },
+    redirect:{
+      type:String
     }
   },
 
