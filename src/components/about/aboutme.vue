@@ -1,11 +1,14 @@
 <template>
-<v-sheet color="#F8F9F9" >
+<!--  no me gusta esta linea pero es la unica solucion que le veo de momento -->
+<v-sheet color="#F8F9F9" :style="$vuetify.breakpoint.mdAndUp ? 'padding-left: 50px' : 'padding-left: 0'">
   <v-card
       height="100vh"
       id="home"
       elevation="0"
       class="d-flex align-center"
+      color="transparent"
       img="https://images.unsplash.com/photo-1605379399642-870262d3d051?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1506&q=80"
+
   >
     <v-col class="d-flex justify-center " cols="12">
       <div class="container_animation">
@@ -23,11 +26,10 @@
 
   </v-card>
   <v-sheet id="about" class="mt-10 pl-5 pr-5" color="transparent">
-
     <h1 class="port_title">Acerca de mí</h1>
     <div class="under_line_title"></div>
     <v-row >
-      <v-col md="5" lg="6" xl="6" class="about_text_principal">
+      <v-col cols="12" xs="12" sm="12" md="4" lg="6" xl="6" class="about_text_principal">
         <v-sheet width="85%" style="margin: 0 auto" elevation="5" class="pa-5 personal_info_card">
           <span class="about_text_develop">Desarrollador WEB </span>
           <span> con conocimientos en Vue, JS, HTML y CSS,
@@ -41,19 +43,19 @@
         </v-sheet>
       </v-col>
 
-      <v-col md="7" lg="6" xl="6" >
+      <v-col cols="12" xs="12" sm="12" md="8" lg="6" xl="6" >
 
           <h3 class="port_subtitle">Personal Info</h3>
           <v-row>
-            <v-col cols="6">
-              <v-sheet elevation="5" class="pa-5 personal_info_card" style="" >
+            <v-col cols="12" xs="6" sm="6" md="6" lg="6" xl="6" >
+              <v-sheet elevation="5" class="pa-5 personal_info_card" style="min-width: 150px !important;" >
                 <div> <span class="personal_info_header"> Nombre: </span> <span class="personal_info_info"> Mauricio Arancibia</span> </div>
                 <div> <span class="personal_info_header"> Edad: </span> <span class="personal_info_info"> 26 años</span> </div>
                 <div> <span class="personal_info_header"> Email: </span> <span class="personal_info_info"> mauricioaransan@gmail.com</span> </div>
                 <div> <span class="personal_info_header"> Dirección: </span> <span class="personal_info_info"> Villa el Salvador - Lima </span> </div>
               </v-sheet>
             </v-col>
-            <v-col cols="6">
+            <v-col cols="12" xs="6" sm="6" md="6" lg="6" xl="6" >
               <v-sheet elevation="5" class="pa-5 personal_info_card">
                 <div> <span class="personal_info_header"> Habilidad: </span> <span class="personal_info_info"> Front-End</span> </div>
                 <div> <span class="personal_info_header"> Experiencia: </span> <span class="personal_info_info"> 1 año</span> </div>
@@ -62,7 +64,7 @@
               </v-sheet>
             </v-col>
           </v-row>
-          <v-row class="ma-0 mt-5">
+          <v-row class="ma-0 mt-5" :class="$vuetify.breakpoint.mdAndDown ? 'justify-center' : 'justify-start'">
             <botonHover colorHover="#2196f3" title="Descargar cv"/>
           </v-row>
       </v-col>
@@ -172,20 +174,20 @@ export default defineComponent({
 
   setup(){
     const colorFromScript = ref('#000')
-  const model = ref(0);
-  const items = ref([
-    {title: 'Experiencia'},
-    {title: 'Educacion'},
-    {title: 'Adicional'},
-  ]);
-  const time      = ref(2)
-  const text_typed = ref('Front-End');
+    const model = ref(0);
+    const items = ref([
+      {title: 'Experiencia'},
+      {title: 'Educacion'},
+      {title: 'Adicional'},
+    ]);
+    const time      = ref(2)
+    const text_typed = ref('Front-End');
 
-  const  replace=  ref([
-        { from: "Front-End", to: "Back-End" },
-        { from: "Back-End", to: "Front-End" },
-        { from: "Front-End", to: "Back-End" },
-      ])
+    const  replace=  ref([
+          { from: "Front-End",  to: "Back-End" },
+          { from: "Back-End",   to: "Front-End" },
+          { from: "Front-End",  to: "Back-End" },
+        ])
 
   onMounted(()=>{
     setInterval(()=>{
@@ -285,6 +287,7 @@ export default defineComponent({
   transition: 2s;
 }
 .container_animation{
+  padding-left: 100px;
   display: flex;
   width: 100%;
 }

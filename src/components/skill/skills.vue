@@ -2,7 +2,7 @@
   <v-sheet id="skills" class="mt-10 pl-5 pr-5">
     <h1 class="port_title">Habilidades</h1>
     <v-row class="ma-4">
-      <v-col cols="6">
+      <v-col cols="12" sm="6" md="6" lg="6" xl="6" >
         <BarComponent
             v-for="(item,i) in itemsleft"
             :key="i"
@@ -11,7 +11,7 @@
             :color="item.color"
         />
       </v-col>
-      <v-col cols="6">
+      <v-col cols="12" sm="6" md="6" lg="6" xl="6" >
         <BarComponent
             v-for="(item,i) in itemsright"
             :key="i"
@@ -40,12 +40,12 @@ export default defineComponent({
       {title:'HTML',        value:'90',   color:'#0D47A1'},
       {title:'CSS',         value:'75',   color:'#1565C0'},
       {title:'VUE',         value:'65',   color:'#1976D2'},
+      {title:'Informix',    value:'60',   color:'#1976D2'},
       {title:'JavaScript',  value:'50',   color:'#1E88E5'},
-      {title:'TypeScript',  value:'50',   color:'#1E88E5'},
     ]);
 
     const itemsright = ref([
-      {title:'Informix',    value:'60',   color:'#1976D2'},
+      {title:'TypeScript',  value:'50',   color:'#1E88E5'},
       {title:'Flutter',     value:'50',   color:'#1E88E5'},
       {title:'GIT',         value:'40',   color:'#42A5F5'},
       {title:'Java Web',    value:'40',   color:'#42A5F5'},

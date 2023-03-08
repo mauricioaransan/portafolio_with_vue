@@ -42,7 +42,7 @@ export default defineComponent({
       {
         color:          '#81c9fa',
         icon:           'mdi-briefcase-outline',
-        timelapse :     'mar, 2022 - ene, 2023',
+        timelapse :     'nov, 2022 - ene, 2023',
         title:          'ayudante de programacion',
         place:          'encode solutions, peru',
         content:        'Ayudé en el programado de los equipos BMS para el proyecto LAP el cual se encarga de la supervisión y monitoreo de varios sistemas dentro de una edificación'
