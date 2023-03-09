@@ -17,13 +17,13 @@
          >
            <img
                alt="Avatar"
-               src="https://avatars0.githubusercontent.com/u/9064066?v=4&s=460"
+               src="..\src\assets\profile_img_medium.jpg"
            >
          </v-avatar>
        </v-row>
 
 
-       <h2 class="white-color mb-12">Mauricio Arancibia Sanchez</h2>
+       <h2 class="white-color mb-12"> Mauricio Arancibia Sanchez </h2>
 
        <v-sheet
            color="transparent"

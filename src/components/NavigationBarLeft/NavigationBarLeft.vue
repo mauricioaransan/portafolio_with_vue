@@ -19,9 +19,8 @@
               class="avatar_img"
           >
             <img
-
                 alt="Avatar"
-                src="https://avatars0.githubusercontent.com/u/9064066?v=4&s=460"
+                src="..\src\assets\profile_img_medium.jpg"
             >
           </v-avatar>
         </v-row>
@@ -35,7 +34,7 @@
               <img
 
                   alt="Avatar"
-                  src="https://avatars0.githubusercontent.com/u/9064066?v=4&s=460"
+                  src="..\src\assets\profile_img_small2.jpg"
               >
             </v-avatar>
           </v-row>

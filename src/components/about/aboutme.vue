@@ -36,6 +36,7 @@
           <span class="about_text_develop">Desarrollador WEB </span>
           <span> con conocimientos en Vue, JS, HTML y CSS,
         además de otros lenguajes como TypeScript y Java.
+            porque todavía podemos decir una vez más y querer querenos por silas dudas
         </span>
           <p>
             Me considero una persona con una gran prioridad por la responsabilidad y
