@@ -21,7 +21,7 @@
                     <div class="px-4 port_info_title">{{item.title}}</div>
                     <div class="px-4 port_info_content" > {{ item.content }}</div>
                     <v-row justify="center" class="ma-0 pa-0">
-                      <botonHover :colorHover="item.color" title="Mas info" :redirect="item.url" />
+                      <botonHover :colorHover="item.color" title="Mas info" :redirect="item.url" isDownload="false" />
                     </v-row>
                   </v-col>
               </v-sheet>

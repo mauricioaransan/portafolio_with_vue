@@ -1,5 +1,5 @@
 <template>
-  <router-link :to="'/projects/'+redirect"  :style="colors">
+  <router-link :to="'/projects?id='+redirect"  :style="colors" v-if="isDownload === 'false'" >
       {{ title }}
       <span></span>
       <span></span>
@@ -8,6 +8,22 @@
       <span></span>
       <span></span>
   </router-link>
+
+  <a href="https://drive.google.com/file/d/1vfNTxnazqZpDgKhTU1O8wZlmi0SGCDLV/view?usp=sharing"
+     v-else
+     :style="colors"
+     download="cv_mauricio.pdf"
+     target="_blank"
+  >
+    {{ title }}
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+
+  </a>
 </template>
 
 <script lang="ts">
@@ -26,6 +42,10 @@ export default defineComponent({
     },
     redirect:{
       type:String
+    },
+    isDownload:{
+      type:String,
+      required:true
     }
   },
 

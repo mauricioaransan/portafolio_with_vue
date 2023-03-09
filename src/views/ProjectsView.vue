@@ -1,30 +1,33 @@
 <template>
-  <v-sheet color="transparent">
-    <h1>Proyectos </h1>
+  <v-sheet color="#F8F9F9">
+    <h1 class="pt-6 pl-12">Proyectos </h1>
 <!--    Cosas por mejorar:-->
 
-<!--    Ponerle cargadores (cuando se demore en cargar la pagina)-->
-<!--    Responsive-->
-<!--    Timelines (aumentar mas informacion)-->
-<!--    Acerca de mi (mejorar los cuadros y centrar un poco mas, aumentar mas info)-->
 <!--    Hacer el portafolio-->
-<!--    Aumentar botones en las informaciones (para que se vean los certificados)-->
     <v-row v-for="(item,id) in items" :key="id" class="mt-12 mx-7">
-      <v-col cols="6" class="d-flex align-center">
+      <v-col cols="12" xs="12" sm="12" md="12" lg="6" xl="6" class="d-flex align-center">
         <v-sheet :id="item.id" elevation="10" class="project_cards">
           <div class="project_title"> {{ item.title }} </div>
           <div v-html="item.content">  </div>
-          <h5>Tecnologias Usadas: </h5>
-          <v-row class="ma-0 mt-6">
-              <v-card width="40" height="40" v-for="(tech,id) in item.tech" :key="id" class="mx-3">
+          <h5 class="mt-5">Tecnologias Usadas: </h5>
+
+          <v-row class="ma-0 mt-6" v-if=" id !== 3">
+              <v-card  width="40" height="40" v-for="(tech,id) in item.tech" :key="id" class="mx-3 mb-5">
                 <v-icon :color="tech.color" size="40">
                   {{tech.icon}}
                 </v-icon>
               </v-card>
           </v-row>
+
+          <v-row class="ma-0 mt-6" v-else>
+            <v-card width="40" height="40" v-for="(tech,id) in techMobil" :key="id" class="mx-3 mb-5">
+              <v-img  :src="tech.icon"></v-img>
+            </v-card>
+          </v-row>
+
         </v-sheet>
       </v-col>
-      <v-col cols="6" class="d-flex align-center">
+      <v-col cols="12" xs="12" sm="12" md="12" lg="6" xl="6" class="d-flex align-center">
         <v-carousel :value="item.model">
           <v-carousel-item
               v-for="(image, i) in item.images"
@@ -52,10 +55,12 @@ export default defineComponent({
 
   setup(){
   const route = useRoute()
-    const id = route.params.id
+    const id = route.query.id
 
     onMounted(() =>{
-      goTo( `#${id}`)
+      if(id !== undefined) {
+        goTo( `#${id}`)
+      }
     })
 
     const items = ref([
@@ -77,8 +82,6 @@ export default defineComponent({
                       {icon:'mdi-language-css3', color:'#264de4'},
                       {icon:'mdi-language-javascript', color:'#f7e018'},
                       {icon:'mdi-git', color:'#e84d31'},
-                      {icon:'Axios', color:'#264de4'},
-                      {icon:'Informix', color:'#264de4'},
                     ],
         images:     [
             'https://images.unsplash.com/photo-1516116216624-53e697fedbea?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1528&q=80',
@@ -90,11 +93,10 @@ export default defineComponent({
         model:      0,
         id:         'labco',
         title:      'SynLab Medica',
-        content:    'Es un entorno web donde los usuarios, en este caso pacientes de una red de hospitales, pueden acceder a la información sobre sus tratamientos, sobre sus visitas y sobre sus prescripciones, además de otras características que tiene la aplicación. \n' +
-                    'Lab médica cuenta con 5 apartados: Covid, HomeCovid, Appointment, Fast PCR y el SynLab.\n' +
-                    'Los primeros cuatro apartados son netamente para los pacientes, para que estos puedan realizar sus consultas sobre lo que se refiere a Covid y sus pruebas. Aquí también tienen acceso los médicos y las enfermeras, quienes son los que realizan los exámenes y las pruebas para poder colgarlas en la página web, permitiendo a los pacientes poder ver los resultados de sus análisis. \n' +
-                    'El último entorno, SynLab, es el entorno encargado de la configuración de los otros cuatro entornos, permitiendo que cosas pueden ver o no los usuarios, quienes tienen acceso a ciertos hospitales, quienes pueden acceder a la información, quienes pueden realizar los análisis, la manipulación de la información de los usuarios, doctores, enfermeras y los administradores, etc.\n' +
-                    'Nuestro trabajo aquí, como desarrolladores, es darle solución a los problemas que puedan surgir durante la manipulación del entorno web. También brindarle mejoras a esta mediante las peticiones de los usuarios quienes manipulan el producto antes de brindárselo al usuario final. Las peticiones varían desde aumentarle unos labels en el frontend al momento de realizar una consulta, cambiar tablas, agregar columnas, mejorar los triggers o procedures, todo ello en el backend, e incluso mejorar la lógica de los captcha que tienen como seguridad al momento de realizar ciertas labores.\n',
+        content:    '<p>Lab médica es una aplicación web que permite a pacientes de hospitales acceder a información sobre sus tratamientos, visitas y prescripciones, y consta de cinco apartados: Covid, HomeCovid, Appointment, Fast PCR y el SynLab. </p>' +
+                    '<p>Los primeros cuatro apartados permiten a pacientes, médicos y enfermeras realizar y ver los resultados de pruebas y consultas relacionadas con Covid. </p>' +
+                    '<p>SynLab configura los cuatro entornos y controla el acceso de usuarios a hospitales, información, análisis y manipulación de datos de usuarios, doctores, enfermeras y administradores.</p>' +
+                    '<p>Como desarrolladores, solucionamos problemas en el entorno web y mejoramos el producto según las peticiones de los usuarios, desde agregar labels en el frontend hasta mejorar la seguridad de ciertas funciones como los captcha.</p>',
 
         tech:       [
                       {icon:'mdi-vuejs', color:'#3fb27f'},
@@ -106,10 +108,6 @@ export default defineComponent({
                       {icon:'mdi-language-javascript', color:'#f7e018'},
                       {icon:'mdi-git', color:'#e84d31'},
                       {icon:'mdi-language-java', color:'#e84d31'},
-                      {icon:'Axios', color:'#264de4'},
-                      {icon:'Informix', color:'#264de4'},
-                      {icon:'VueX', color:'#264de4'},
-                      {icon:'FTL', color:'#264de4'},
                     ],
         images:     [
           'https://images.unsplash.com/photo-1516116216624-53e697fedbea?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1528&q=80',
@@ -143,12 +141,12 @@ export default defineComponent({
         model:      0,
         id:         'appAltillos',
         title:      'Applicativo Altillos',
-        content:    'Proyecto Académico que desarrollé para el curso de Tesina en la Universidad, donde desarrollé tanto el aplicativo móvil como la documentación necesaria para sustentar el proyecto.\n' +
-                    'Consta de un aplicativo móvil que serviría como solución a la problemática que en ese momento SODIMAC tenía encima, el cual era la ubicación de sus productos en los altillos, ya que estos no contaban con ningún orden.\n' +
-                    'El aplicativo consistía en registrar todo movimiento que se realizase en los altillos, ya sea almacenaje o para venta, o por otros motivos, guardando el SKU, Cantidad y ubicación, con el fin de que todo usuario que contara con el mismo aplicativo, supiera en que lugar de la tienda se encontraba el producto haciendo el mínimo esfuerzo.\n' +
-                    'Dentro del aplicativo, podrías registrar nuevos productos, modificar, eliminar y listar los cambios realizados de cada producto, con el fin de mantener un control de los mismo y obtener el mínimo posible de errores humanos (ya que no está automatizado). \n' +
-                    'También contaba con un apartado de lectura de Código QR con el que se podría mostrar los productos y las cantidades de estos en un solo lugar.\n' +
-                    'Como base de Datos utilicé FireBase, aprovechando el Realtime Database que tienen en sus servicios.\n',
+        content:    '<p> Desarrollé este proyecto académico para el curso de Tesina en la universidad, incluyendo el aplicativo móvil y la documentación requerida para sustentarlo.</p>' +
+                    '<p>Se desarrolló un aplicativo móvil para SODIMAC que resolvía la problemática de la ubicación desordenada de productos en los altillos.</p>' +
+                    '<p>El aplicativo registraba los movimientos de los productos en los altillos, incluyendo SKU, cantidad y ubicación, permitiendo a los usuarios encontrar los productos de manera fácil y rápida.</p>' +
+                    '<p>El aplicativo permitía registrar, modificar y eliminar productos, así como listar los cambios realizados, con el objetivo de mantener un control y reducir errores humanos.' +
+                    'También contaba con un apartado de lectura de Código QR con el que se podría mostrar los productos y las cantidades de estos en un solo lugar.</p>' +
+                    '<p>Como base de Datos utilicé FireBase, aprovechando el Realtime Database que tienen en sus servicios.</p>',
         tech:       ['Flutter','Dart', 'mdi-firebase'],
         images:     [
           'https://images.unsplash.com/photo-1516116216624-53e697fedbea?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1528&q=80',
@@ -158,9 +156,14 @@ export default defineComponent({
       }
     ])
 
+    const techMobil = ref([
+      {icon: 'https://cdn.iconscout.com/icon/free/png-256/flutter-2038877-1720090.png'},
+      {icon: 'https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/dart-programming-language-icon.png'},
+      {icon: 'https://img.icons8.com/color/512/firebase.png'},
+    ])
 
     return{
-      items
+      items,techMobil
     }
   }
 

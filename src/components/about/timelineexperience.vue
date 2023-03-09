@@ -37,7 +37,7 @@ export default defineComponent({
         timelapse :     'mar, 2022 - ene, 2023',
         title:          'desarrollador frontend junior',
         place:          'DEISTER SOFTWARE PERU',
-        content:        ' Encargado del desarrollo de paginas web (meter mas floro)'
+        content:        'Encargado del diseño y desarrollo de sitios y aplicaciones web usando lenguajes de programación como HTML, CSS, JavaScript, Vue, etc. Participé en varios proyectos donde se brindan soporte.'
       },
       {
         color:          '#81c9fa',

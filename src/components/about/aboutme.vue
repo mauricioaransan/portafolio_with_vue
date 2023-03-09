@@ -10,8 +10,11 @@
       img="https://images.unsplash.com/photo-1605379399642-870262d3d051?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1506&q=80"
 
   >
-    <v-col class="d-flex justify-center " cols="12">
-      <div class="container_animation">
+    <v-col class="justify-center " cols="12">
+      <div>
+        <p class="personal_name pa-0 mt-16">Mauricio Arancibia Sánchez</p>
+      </div>
+      <div class="container_animation ">
         <span class="text first_text"> Desarrollador </span>
         <typewriter
             :replace="replace"
@@ -22,9 +25,8 @@
         </typewriter>
       </div>
     </v-col>
-
-
   </v-card>
+
   <v-sheet id="about" class="mt-10 pl-5 pr-5" color="transparent">
     <h1 class="port_title">Acerca de mí</h1>
     <div class="under_line_title"></div>
@@ -65,7 +67,7 @@
             </v-col>
           </v-row>
           <v-row class="ma-0 mt-5" :class="$vuetify.breakpoint.mdAndDown ? 'justify-center' : 'justify-start'">
-            <botonHover colorHover="#2196f3" title="Descargar cv"/>
+            <botonHover colorHover="#2196f3" title="Descargar cv" isDownload='true' />
           </v-row>
       </v-col>
     </v-row>
@@ -87,7 +89,7 @@
             v-for="(item,i) in items"
             :key="i"
             v-slot="{ active, toggle }"
-            class=" my-5"
+            class="my-5"
         >
           <v-btn
               :class="active ? ' btn_slide_group_activated' : 'btn_slide_group'"
@@ -212,6 +214,12 @@ export default defineComponent({
 
 <style scoped>
 
+.personal_name{
+  font-size: 2.4rem;
+  color: white;
+  padding-left: 100px !important;
+}
+
 .port_title{
   text-transform: uppercase;
   color:  #003785;
@@ -302,30 +310,4 @@ export default defineComponent({
   padding-right: 24px;
 }
 
-
-
-/**
-Es para solo uso de CSS con un fondo de pantalla del mismo color que el componente 'absolute'
- */
-/*.typed-text:before{*/
-/*  content: '';*/
-/*  position: absolute;*/
-/*  top: 0;*/
-/*  left: 0;*/
-/*  height: 100%;*/
-/*  width: 100%;*/
-/*  background-color: green;*/
-/*  border-left: 2px solid blue;*/
-/*  animation: animate 4s steps(12) infinite;*/
-/*}*/
-
-/*
-@keyframes animate {
-  40%, 60% {
-    left:100%
-  }
-  100%{
-    left: 0%;
-  }
-}*/
 </style>
