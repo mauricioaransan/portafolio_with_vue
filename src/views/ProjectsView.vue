@@ -1,9 +1,18 @@
 <template>
   <v-sheet color="#F8F9F9">
+    <v-btn
+        to="/"
+        color="#149ddd"
+        dark
+        fixed
+        bottom
+        right
+        fab
+    >
+      <v-icon size="50">mdi-chevron-left</v-icon>
+    </v-btn>
     <h1 class="pt-6 pl-12">Proyectos </h1>
-<!--    Cosas por mejorar:-->
 
-<!--    Hacer el portafolio-->
     <v-row v-for="(item,id) in items" :key="id" class="mt-12 mx-7">
       <v-col cols="12" xs="12" sm="12" md="12" lg="6" xl="6" class="d-flex align-center">
         <v-sheet :id="item.id" elevation="10" class="project_cards">
@@ -28,18 +37,46 @@
         </v-sheet>
       </v-col>
       <v-col cols="12" xs="12" sm="12" md="12" lg="6" xl="6" class="d-flex align-center">
-        <v-carousel :value="item.model">
+        <v-carousel v-if="id !== 3" :value="item.model">
           <v-carousel-item
               v-for="(image, i) in item.images"
               :key="i"
           >
             <v-img
-                cover="true"
+                height="100%"
                 :src="image"
             >
             </v-img>
           </v-carousel-item>
         </v-carousel>
+
+        <v-slide-group
+            v-else
+            v-model="model"
+            class="pa-4"
+            show-arrows
+        >
+          <v-slide-item
+              v-for="(img,id) in item.images"
+              :key="id"
+              v-slot="{ active, toggle }"
+          >
+            <v-card
+                elevation="0"
+                height="600"
+                width="300"
+                class="ml-5"
+                @click="toggle"
+            >
+              <v-img
+                  :src="img"
+              >
+              </v-img>
+            </v-card>
+
+          </v-slide-item>
+        </v-slide-group>
+
       </v-col>
     </v-row>
   </v-sheet>
@@ -54,8 +91,9 @@ export default defineComponent({
   name: "ProjectsView",
 
   setup(){
-  const route = useRoute()
+    const route = useRoute()
     const id = route.query.id
+    const model = null
 
     onMounted(() =>{
       if(id !== undefined) {
@@ -110,9 +148,9 @@ export default defineComponent({
                       {icon:'mdi-language-java', color:'#e84d31'},
                     ],
         images:     [
-          'https://images.unsplash.com/photo-1516116216624-53e697fedbea?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1528&q=80',
-          'https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
-          'https://images.unsplash.com/photo-1619410283995-43d9134e7656?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80'
+          require("..\\src\\assets\\img_portfolio\\labco\\img1.png"),
+          require("..\\src\\assets\\img_portfolio\\labco\\img2.png"),
+          require("..\\src\\assets\\img_portfolio\\labco\\img3.png"),
         ]
       },
       {
@@ -132,9 +170,9 @@ export default defineComponent({
                       {icon:'mdi-git', color:'#e84d31'},
                     ],
         images:     [
-          'https://images.unsplash.com/photo-1516116216624-53e697fedbea?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1528&q=80',
-          'https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
-          'https://images.unsplash.com/photo-1619410283995-43d9134e7656?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80'
+          require("..\\src\\assets\\img_portfolio\\portFolio\\img1.png"),
+          require("..\\src\\assets\\img_portfolio\\portFolio\\img2.png"),
+          require("..\\src\\assets\\img_portfolio\\portFolio\\img3.png"),
         ]
       },
       {
@@ -149,9 +187,12 @@ export default defineComponent({
                     '<p>Como base de Datos utilicé FireBase, aprovechando el Realtime Database que tienen en sus servicios.</p>',
         tech:       ['Flutter','Dart', 'mdi-firebase'],
         images:     [
-          'https://images.unsplash.com/photo-1516116216624-53e697fedbea?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1528&q=80',
-          'https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
-          'https://images.unsplash.com/photo-1619410283995-43d9134e7656?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80'
+          require("..\\src\\assets\\img_portfolio\\altillos\\img1.jpg"),
+          require("..\\src\\assets\\img_portfolio\\altillos\\img2.jpg"),
+          require("..\\src\\assets\\img_portfolio\\altillos\\img3.jpg"),
+          require("..\\src\\assets\\img_portfolio\\altillos\\img4.jpg"),
+          require("..\\src\\assets\\img_portfolio\\altillos\\img5.jpg"),
+          require("..\\src\\assets\\img_portfolio\\altillos\\img6.jpg"),
         ]
       }
     ])
@@ -163,7 +204,7 @@ export default defineComponent({
     ])
 
     return{
-      items,techMobil
+      items,techMobil,model
     }
   }
 
@@ -172,9 +213,7 @@ export default defineComponent({
 
 <style>
 
-.v-item-group{
-  max-width: 100% !important;
-}
+
 
 .project_cards{
   border-radius: 20px;

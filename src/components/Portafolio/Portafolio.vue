@@ -2,7 +2,7 @@
   <v-sheet id="portfolio" class="mt-10 pl-5 pr-5" >
     <h1 class="mt-5 port_title">PORTAFOLIO</h1>
     <v-row class="px-10 mt-10" justify="center">
-      <v-col cols="12" sm="6" md="4" lg="4" xl="4"  v-for="item in items" >
+      <v-col cols="12" sm="6" md="4" lg="4" xl="4"   v-for="(item,id) in items" :key="id">
         <v-hover v-slot="{ hover }">
           <v-img
               :src="item.image"

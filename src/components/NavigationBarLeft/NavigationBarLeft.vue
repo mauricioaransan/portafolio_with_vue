@@ -135,7 +135,7 @@ export default defineComponent({
 .v-btn__content{
   align-items: start !important;
 }
-.v-btn{
+.navigation_bar_fixed .v-btn{
   justify-content: left !important;
   color:#149ddd !important;
 }

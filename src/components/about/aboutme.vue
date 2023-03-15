@@ -28,15 +28,13 @@
   </v-card>
 
   <v-sheet id="about" class="mt-10 pl-5 pr-5" color="transparent">
-    <h1 class="port_title">Acerca de mí</h1>
-    <div class="under_line_title"></div>
+    <h1 class="port_title mb-10">Acerca de mí</h1>
     <v-row >
       <v-col cols="12" xs="12" sm="12" md="4" lg="6" xl="6" class="about_text_principal">
-        <v-sheet width="85%" style="margin: 0 auto" elevation="5" class="pa-5 personal_info_card">
+        <v-sheet width="85%" style="margin: 0 auto" elevation="0" color="transparent" class="mt-3 pa-5 personal_info_card">
           <span class="about_text_develop">Desarrollador WEB </span>
           <span> con conocimientos en Vue, JS, HTML y CSS,
         además de otros lenguajes como TypeScript y Java.
-            porque todavía podemos decir una vez más y querer querenos por silas dudas
         </span>
           <p>
             Me considero una persona con una gran prioridad por la responsabilidad y
@@ -46,12 +44,12 @@
         </v-sheet>
       </v-col>
 
-      <v-col cols="12" xs="12" sm="12" md="8" lg="6" xl="6" >
+      <v-col cols="12" xs="12" sm="12" md="8" lg="6" xl="6"  align-self="stretch">
 
           <h3 class="port_subtitle">Personal Info</h3>
           <v-row>
             <v-col cols="12" xs="6" sm="6" md="6" lg="6" xl="6" >
-              <v-sheet elevation="5" class="pa-5 personal_info_card" style="min-width: 150px !important;" >
+              <v-sheet elevation="5" class="pa-5 personal_info_card" height="100%">
                 <div> <span class="personal_info_header"> Nombre: </span> <span class="personal_info_info"> Mauricio Arancibia</span> </div>
                 <div> <span class="personal_info_header"> Edad: </span> <span class="personal_info_info"> 26 años</span> </div>
                 <div> <span class="personal_info_header"> Email: </span> <span class="personal_info_info"> mauricioaransan@gmail.com</span> </div>
@@ -284,13 +282,6 @@ export default defineComponent({
   }
 }
 
-.under_line_title{
-  width: 100px;
-  height: 10px;
-  color: red;
-  padding-top: 15px;
-  padding-bottom: 15px;
-}
 
 .experience_card{
   transition: 2s;
