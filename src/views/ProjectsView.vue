@@ -36,7 +36,7 @@
 
         </v-sheet>
       </v-col>
-      <v-col cols="12" xs="12" sm="12" md="12" lg="6" xl="6" class="d-flex align-center">
+      <v-col cols="12" xs="12" sm="12" md="12" lg="6" xl="6" class="d-flex align-center column_imgs">
         <v-carousel v-if="id !== 3" :value="item.model">
           <v-carousel-item
               v-for="(image, i) in item.images"
@@ -62,7 +62,7 @@
               v-slot="{ active, toggle }"
           >
             <v-card
-                elevation="0"
+                elevation="1"
                 height="600"
                 width="300"
                 class="ml-5"
@@ -93,7 +93,7 @@ export default defineComponent({
   setup(){
     const route = useRoute()
     const id = route.query.id
-    const model = null
+    const model = ref(null)
 
     onMounted(() =>{
       if(id !== undefined) {
@@ -213,7 +213,9 @@ export default defineComponent({
 
 <style>
 
-
+.column_imgs .v-item-group{
+  max-width: 100% !important;
+}
 
 .project_cards{
   border-radius: 20px;
